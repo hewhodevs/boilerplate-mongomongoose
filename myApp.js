@@ -105,7 +105,7 @@ const removeById = (personId, done) => {
     done(null, removedDoc);
   })
 };
- 
+
 const removeManyPeople = (done) => {
   const nameToRemove = "Mary";
 
