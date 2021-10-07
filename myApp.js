@@ -88,10 +88,15 @@ const findEditThenSave = (personId, done) => {
   })
 };
 
+// Example of findOneAndUpdate model method
+// for details see https://mongoosejs.com/docs/tutorials/findoneandupdate.html 
+// arguments follow the format filter, update, return updated doc toggle, callback
 const findAndUpdate = (personName, done) => {
   const ageToSet = 20;
-
-  done(null /*, data*/);
+  Person.findOneAndUpdate({name: personName}, {age: ageToSet}, {new: true}, (err, updatedDoc) => {
+    if (err) return console.log(err);
+    done(null, updatedDoc);
+  });
 };
 
 const removeById = (personId, done) => {
